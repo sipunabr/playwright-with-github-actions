@@ -27,7 +27,7 @@ jobs:
           username: admin
           password: openit
           format: maven2
-          repository: maven-releases
-          coordinates: groupId=com.example artifactId=app version=1.0.0
+          repository: local-maven-releases
+          coordinates: groupId=org.learning artifactId=playwright-github-actions-demo version=1.0.0
           assets: extension=jar
-          filename: ./target/app-1.0.0.jar
+          filename: ./target/playwright-github-actions-demo-1.0.0.jar
