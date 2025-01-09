@@ -42,7 +42,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: cucumber-report
+          name: test-results
           path: ./report
 
       - name: Deploy to GitHub Pages
