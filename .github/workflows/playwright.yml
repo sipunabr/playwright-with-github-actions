@@ -1,9 +1,9 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main, master, feature/allure-reporting ]
+    branches: [ main, master, feature/allure-reporting, feature/cucumber-report ]
   pull_request:
-    branches: [ main, master, feature/allure-reporting]
+    branches: [ main, master, feature/allure-reporting, feature/cucumber-report ]
 jobs:
   build:
 
