@@ -39,5 +39,14 @@ jobs:
       - name: Upload Allure report
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report
-          path: target/allure-results
+          name: test-results
+          path: target/allure-results, target/cucumber-reports.html
+
+      - name: Publish Allure report
+        uses: allure-framework/allure2@v1
+        with:
+          results: target/allure-results
+          report: allure-report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
