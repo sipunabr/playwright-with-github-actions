@@ -10,7 +10,7 @@ public class PlaywrightManager {
     private static ThreadLocal<Page> page = new ThreadLocal<>();
 
     public static void setUp() {
-        Browser browserInstance = playwright.get().chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        Browser browserInstance = playwright.get().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
         BrowserContext contextInstance = browserInstance.newContext();
         Page pageInstance = contextInstance.newPage();
 
