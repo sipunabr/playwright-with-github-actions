@@ -42,11 +42,28 @@ jobs:
           name: test-results
           path: target/allure-results, target/cucumber-reports.html
 
-      - name: Publish Allure report
-        uses: allure-framework/allure2@2.32.0
+      - name: Load test report history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
         with:
-          results: target/allure-results
-          report: allure-report
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_history: allure-history
+          allure_results: target/allure-results
+
+      - name: Publish test report
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
 
 
