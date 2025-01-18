@@ -54,6 +54,9 @@ jobs:
           ref: gh-report-pages
           token: ${{ secrets.GITHUB_TOKEN  }}
 
+      - name: List target directory contents
+        run: ls -la target
+
       - name: Copy report to gh-report-pages branch
         run: |
           mkdir -p report
