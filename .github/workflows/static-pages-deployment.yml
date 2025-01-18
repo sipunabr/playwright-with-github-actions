@@ -39,6 +39,9 @@ jobs:
           name: test-results
           path: target/cucumber-reports.html
 
+      - name: List target directory contents
+        run: ls -la target
+
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
