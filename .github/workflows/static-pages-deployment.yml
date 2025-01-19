@@ -42,12 +42,12 @@ jobs:
       - name: List target directory contents
         run: ls -la target
 
-      - name: Deploy cucumber report to gh-report-pages branch
+      - name: Deploy cucumber report to gh-pages branch
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         
-          git checkout --orphan gh-report-pages
+          git checkout --orphan gh-pages
           
           git rm -rf .
           cp -r target/cucumber-reports.html .
@@ -55,4 +55,4 @@ jobs:
           # Commit and push the changes
           git add target/cucumber-reports.html
           git commit -m "Deploy Cucumber report"
-          git push --force origin gh-report-pages
+          git push --force origin gh-pages
